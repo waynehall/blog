@@ -31,21 +31,26 @@
 </nav>
 
 <div class="container">
-  
 
-    <div>
-        {% block content %}{% endblock %}
-    </div>
-    <div>
-        {% if categories %}
-            <h2>Categories</h2>
-            <ul>
-                {% for category in categories %}
-                    <li><a href="{% url 'showCategory' category.slug %}">{{ category.name }}</a> {{ category.post_set.count }}x</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </div>
+<div class="row">
+<div class="col-sm-8">
+
+  {% block content %}{% endblock %}
+
+</div>
+<div class="col-sm-4">
+  {% if categories %}
+      <h3>Categories</h3>
+      <ul>
+          {% for category in categories %}
+              <li><a href="{% url 'showCategory' category.slug %}">{{ category.name }}</a> {{ category.post_set.count }}x</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
+</div>
+
+</div>
+
   </div>
 </body>
 </html>
